@@ -1,0 +1,28 @@
+﻿@model List<Boeken>
+<h1>Boeken List</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+               Boek Naam
+            <th>
+                Display Order
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderBy(u => u.DisplayOrder))
+        {
+            <tr>
+                <td>@item.Naam</td>
+                <td>
+                    @item.DisplayOrder
+
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>

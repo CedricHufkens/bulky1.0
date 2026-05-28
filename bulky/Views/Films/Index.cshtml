@@ -1,0 +1,27 @@
+﻿@model List<Films>
+
+<h1>Films lijst</h1>
+<table>
+    <tr>
+        <th>
+             Films Name
+        </th>
+        <th>
+            Display Order
+        </th>
+    </tr>
+</table>
+<tbody>
+    @foreach (var item in Model.OrderBy(u => u.DisplayOrder))
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                @item.DisplayOrder
+
+            </td>
+
+        </tr>
+
+    }
+</tbody>
