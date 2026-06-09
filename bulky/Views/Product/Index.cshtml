@@ -1,9 +1,9 @@
 ﻿@model List<Product>
 <partial name="_Notification" />
-<div class="Container">
+<div class="container">
     <div class="row pt-4 pb-3">
         <div class="col-6">
-            <h2 class="text-primary"> Producten List</h2>
+            <h2 class="text-primary">Product List</h2>
         </div>
         <div class="col-6 text-end">
             <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
@@ -11,42 +11,44 @@
             </a>
         </div>
     </div>
+
+
+
+
     <table class="table table-bordered table-striped">
-        
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
         <tbody>
-            
-                <div class="row pb-3">
-                @foreach (var item in Model.OrderBy(u => u.Id))
-                {
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="row p-2">
-                            <div class="col-12 p-1">
-                                <div class="card border-0 p-3 shadow border-top border-5 rounded">
-                                    
-                                    <div class="card-body pb-0">
-                                        <div class="pl-1">
-                                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary form-control">
-                                                <img src="@item.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
-                                            </a>
-                                        </div>
-                                        <div class="pl-1">
-                                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger form-control">
-                                                <i class="bi bi-trash3"></i> DELETE
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-
-                                </div>
-                            </div>
+            @foreach (var item in Model.OrderBy(u => u.Id))
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Author</td>
+                    <td>@item.ISBN</td>
+                    <td>@item.Price</td>
+                    <td>@item.Category.Name</td>
+                    <td></td>
+                    <td>
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash3"></i> Delete
+                            </a>
                         </div>
-                    </div>
-           
-                
-               
-                     }
-            </div>
-        </tbody>
+                    </td>
+                </tr>
+            }
 
+        </tbody>
     </table>
-<div>
+</div>
