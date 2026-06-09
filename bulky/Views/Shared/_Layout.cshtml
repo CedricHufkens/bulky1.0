@@ -26,7 +26,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Product" asp-action="Index">Producten</a>
-                        </li>
+                            </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
                         </li>
@@ -40,18 +40,16 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container page-content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted bg-primary">
-
             <div class="container text-white text-center">
                     BulkyWeb <i class="bi bi-heart-fill"></i> by Hufkens
             </div>
-        
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
